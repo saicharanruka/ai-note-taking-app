@@ -2,11 +2,12 @@ import { getUser } from "@/auth/server";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
-  SidebarHeader,
+  SidebarGroupLabel,
 } from "@/components/ui/sidebar";
 import { prisma } from "@/db/prisma";
+import { Note } from "@prisma/client";
+import SidebarGroupContent from "./SidebarGroupContent";
 
 export async function AppSidebar() {
   const user = await getUser();
@@ -26,12 +27,14 @@ export async function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarHeader />
       <SidebarContent>
-        <SidebarGroup />
-        <SidebarGroup />
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-large my-2">
+            {user ? "Your notes" : "Sign in to add notes"}
+          </SidebarGroupLabel>
+          {user && <SidebarGroupContent notes={notes} />}
+        </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
     </Sidebar>
   );
 }
