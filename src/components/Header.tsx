@@ -3,9 +3,10 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import DarkModeToggle from "@/components/DarkModeToggle";
 import LogoutButton from "./LogoutButton";
+import { getUser } from "@/auth/server";
 
-function Header() {
-  const user = 1;
+async function Header() {
+  const user = await getUser();
 
   return (
     <header className="bg-popover sshadow-2xl relative flex h-24 items-center justify-between rounded-lg px-3 shadow-2xl shadow-blue-500/40">
