@@ -4,12 +4,14 @@ import { Button } from "./ui/button";
 import DarkModeToggle from "@/components/DarkModeToggle";
 import LogoutButton from "./LogoutButton";
 import { getUser } from "@/auth/server";
+import { SidebarTrigger } from "./ui/sidebar";
 
 async function Header() {
   const user = await getUser();
 
   return (
     <header className="bg-popover sshadow-2xl relative flex h-24 items-center justify-between rounded-lg px-3 shadow-2xl shadow-blue-500/40">
+      <SidebarTrigger className="absolute top-1 left-1" />
       <Link href="/" className="flex items-center gap-3 px-2">
         <Image
           src="/logo.png"

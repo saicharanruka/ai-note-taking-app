@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "GOAT Notes",
+  title: "AI Note Taking App",
   description: "",
 };
 
